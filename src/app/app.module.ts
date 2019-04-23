@@ -9,13 +9,21 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
+import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     MenuComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    VendorListComponent,
+    VendorCreateComponent,
+    ProductListComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
