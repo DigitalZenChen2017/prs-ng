@@ -13,6 +13,22 @@ import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.co
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
+import { UserDeleteComponent } from './feature/user/user-delete/user-delete.component';
+import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { VendorDeleteComponent } from './feature/vendor/vendor-delete/vendor-delete.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { PrListComponent } from './feature/pr/pr-list/pr-list.component';
+import { PrCreateComponent } from './feature/pr/pr-create/pr-create.component';
+import { PrEditComponent } from './feature/pr/pr-edit/pr-edit.component';
+import { PrDetailComponent } from './feature/pr/pr-detail/pr-detail.component';
+import { PrliListComponent } from './feature/prli/prli-list/prli-list.component';
+import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.component';
+import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
+import { PrliDetailComponent } from './feature/prli/prli-detail/prli-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +39,23 @@ import { ProductCreateComponent } from './feature/product/product-create/product
     VendorListComponent,
     VendorCreateComponent,
     ProductListComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    UserEditComponent,
+    UserDeleteComponent,
+    UserDetailComponent,
+    VendorEditComponent,
+    VendorDetailComponent,
+    VendorDeleteComponent,
+    ProductDetailComponent,
+    ProductEditComponent,
+    PrListComponent,
+    PrCreateComponent,
+    PrEditComponent,
+    PrDetailComponent,
+    PrliListComponent,
+    PrliCreateComponent,
+    PrliEditComponent,
+    PrliDetailComponent
   ],
   imports: [
     BrowserModule,

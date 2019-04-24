@@ -10,34 +10,37 @@ import { JsonResponse } from '../../../model/json-response.class';
   styleUrls: ['./vendor-edit.component.css']
 })
 export class VendorEditComponent implements OnInit {
-// tslint:disable-next-line: no-inferrable-types
-  title: string = 'Vendor Detail';
-  jr: JsonResponse;
-  Vendor: Vendor;
+  // tslint:disable-next-line: no-inferrable-types
+  title: string = 'Vendor Edit';
 
-  constructor(private vendorSvc: VendorService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+  jr: JsonResponse;
+  id: string;
+  resp: any;
+
+  vendor: Vendor;
+
+  constructor(private VendorSvc: VendorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(parms => {
-        const id = parms.id;
-        this.getUserById(id);
+    // tslint:disable-next-line: no-string-literal
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    console.log('Vendor edit ngOnInit', 'id = ' + this.id);
+    this.VendorSvc.get(this.id)
+      .subscribe(jrresp => {
+        this.jr = jrresp;
+        console.log('1');
+        this.vendor = this.jr.data as Vendor;
+        console.log('Vendor', this.vendor);
       });
   }
 
-  getUserById(id: string) {
-    this.vendorSvc.get(id)
-      .subscribe(jsresp => {
-        this.jr = jsresp;
-        this.Vendor = this.jr.data as Vendor;
+  edit() {
+    console.log('Vendor edit component edit method...');
+    this.VendorSvc.edit(this.vendor)
+      .subscribe(resp => {
+        this.resp = resp;
+        this.router.navigate(['/vendor/list']);
       });
   }
-  remove(): void {
-    this.vendorSvc.delete(this.Vendor.id)
-      .subscribe(res => {
-        this.router.navigateByUrl('/vendor/list');
-      });
-  }
+
 }
