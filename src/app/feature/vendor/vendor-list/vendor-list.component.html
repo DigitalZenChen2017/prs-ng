@@ -46,8 +46,10 @@
     <td>{{vendor.email}}</td>
     <td>{{vendor.preApproved}}</td>
     <td class='actions'>
-      <img src='assets/details.png' width='20' height='20' title='Detail'>
-      <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'>
+      <a routerLink='/vendor/details/{{vendor.id}}'><img src='assets/details.png' width='20' height='20'
+        title='Detail'></a>
+      <a routerLink='/vendor/edit/{{vendor.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+          title='Edit'></a>
     </td>
   </tr>
 </table>
