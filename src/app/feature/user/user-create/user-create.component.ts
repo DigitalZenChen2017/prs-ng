@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../model/user.class';
 import { UserService } from '../../../service/user.service';
+import { JsonResponse } from '../../../model/json-response.class';
 
 @Component({
   selector: 'app-user-create',
@@ -13,6 +14,7 @@ export class UserCreateComponent implements OnInit {
   title: string = 'User Create';
   resp: any;
   user: User = new User(0, '', '', '', '', '', '', false, false);
+  jr: JsonResponse;
 
   constructor(private userSvc: UserService, private router: Router) { }
 
@@ -23,7 +25,7 @@ export class UserCreateComponent implements OnInit {
   create() {
     this.userSvc.create(this.user)
       .subscribe(resp => {
-        this.resp = resp;
+        this.jr = resp;
         this.router.navigate(['/user/list']);
       });
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { VendorService } from '../../../service/Vendor.service';
+import { VendorService } from '../../../service/vendor.service';
 import { Vendor } from '../../../model/vendor.class';
 import { JsonResponse } from '../../../model/json-response.class';
 
@@ -16,8 +16,8 @@ export class VendorDetailComponent implements OnInit {
   vendor: Vendor;
 
   constructor(private vendorSvc: VendorService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params

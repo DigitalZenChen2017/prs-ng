@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './service/user.service';
 import { AppRoutingModule } from './app-routing.module';
+
+import { UserService } from './service/user.service';
+import { VendorService } from './service/vendor.service';
+import { ProductService } from './service/product.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './core/menu/menu.component';
@@ -27,6 +30,9 @@ import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.comp
 import { PrliDetailComponent } from './feature/prli/prli-detail/prli-detail.component';
 import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
 import { PrliListComponent } from './feature/prli/prli-list/prli-list.component';
+import { FooterComponent } from './core/footer/footer.component';
+
+import { SortPipe } from './pipe/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,9 @@ import { PrliListComponent } from './feature/prli/prli-list/prli-list.component'
     PrliListComponent,
     PrliCreateComponent,
     PrliEditComponent,
-    PrliDetailComponent
+    PrliDetailComponent,
+    FooterComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,7 @@ import { PrliListComponent } from './feature/prli/prli-list/prli-list.component'
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, VendorService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

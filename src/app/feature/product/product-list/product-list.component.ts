@@ -12,6 +12,8 @@ export class ProductListComponent implements OnInit {
   title: string = 'Product List';
   products: Product[];
   jr: JsonResponse;
+  sortCriteria: string = 'product';
+  sortOrder: string = 'asc';
 
   constructor(private productSvc: ProductService) { }
 
@@ -23,6 +25,15 @@ export class ProductListComponent implements OnInit {
     }
     );
 
+  }
+
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 
 }
