@@ -9,15 +9,18 @@
 
   <div *ngIf='product'>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productvendorid">Vendor ID:</label>
-      <input [(ngModel)]='product.Vendor' name='vendorid' type="text" class="form-control col-sm-6" id="productvendorid"
-        aria-describedby="vendorHelp" placeholder="Vendor ID">
-      <small id="vendorHelp" class="form-text text-muted col-sm-2">Vendor ID</small>
+			<label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
+			<div class='col-sm-6 select-list'>
+			  <select [(ngModel)]='product.vendor.id' [compareWith]='compareFn' class='form-control' name='Vendor' id='product-Vendor'>
+                <option *ngFor="let vendor of vendors" [ngValue]="vendor.id" [selected]="vendor.id == product.vendor.id">{{vendor.name}}</option>
+              </select>
+			</div>
+      <small id="vendorHelp" class="form-text text-muted col-sm-2">Vendor Name</small>
     </div>
     <div class="form-group row">
       <label class='col-form-label col-sm-2' for="productpartnumber">Part Number:</label>
-      <input [(ngModel)]='product.partNumber' name='partnumber' type="text" class="form-control col-sm-6" id="productpartnumber"
-        aria-describedby="partnumberHelp" placeholder="Part Number">
+      <input [(ngModel)]='product.partNumber' name='partnumber' type="text" class="form-control col-sm-6"
+        id="productpartnumber" aria-describedby="partnumberHelp" placeholder="Part Number">
       <small id="partnumberHelp" class="form-text text-muted col-sm-2">Part Number</small>
     </div>
     <div class="form-group row">
@@ -49,4 +52,3 @@
     </div>
   </div>
 </div>
-

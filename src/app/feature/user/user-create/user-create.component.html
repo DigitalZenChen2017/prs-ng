@@ -44,18 +44,18 @@
       </div>
       <div class="form-group row text-center">
         <label class='col-form-label col-sm-2' for="userAdmin">Admin:</label>
-        <input [(ngModel)]='user.admin' name='Admin' type="checkbox" class="form-control col-sm-6" id="userAdmin"
+        <input [(ngModel)]='user.isAdmin' name='Admin' type="checkbox" class="form-control col-sm-6" id="userAdmin"
           aria-describedby="adminHelp" placeholder="Admin">
         <small id="adminHelp" class="form-text text-muted col-sm-2">Admin Authority</small>
       </div>
       <div class="form-group row text-center">
         <label class='col-form-label col-sm-2' for="userReviewer">Reviewer:</label>
-        <input [(ngModel)]='user.reviewer' name='Reviewer' type="checkbox" class="form-control col-sm-6"
+        <input [(ngModel)]='user.isReviewer' name='Reviewer' type="checkbox" class="form-control col-sm-6"
           id="userReviewer" aria-describedby="reviewerHelp" placeholder="Reviewer">
         <small id="reviewerHelp" class="form-text text-muted col-sm-2">Reviewer Authority</small>
       </div>
       <div class="form-group text-center">
-        <button (click)='create()' class='btn btn-primary'>Create</button>
+        <button (click)='create()' class='btn btn-primary'>Create New User</button>
       </div>
     </div>
   </div>

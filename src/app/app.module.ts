@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './service/user.service';
 import { VendorService } from './service/vendor.service';
 import { ProductService } from './service/product.service';
+import { SystemService } from './service/system.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './core/menu/menu.component';
@@ -33,6 +34,7 @@ import { PrliListComponent } from './feature/prli/prli-list/prli-list.component'
 import { FooterComponent } from './core/footer/footer.component';
 
 import { SortPipe } from './pipe/sort.pipe';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { SortPipe } from './pipe/sort.pipe';
     PrliEditComponent,
     PrliDetailComponent,
     FooterComponent,
-    SortPipe
+    SortPipe,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ import { SortPipe } from './pipe/sort.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, VendorService, ProductService],
+  providers: [UserService, VendorService, ProductService, SystemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

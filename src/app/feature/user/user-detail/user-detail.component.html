@@ -34,16 +34,16 @@
     </tr>
     <tr>
       <td>Admin</td>
-      <td>{{ user.admin }}</td>
+      <td>{{ user.isAdmin }}</td>
     </tr>
     <tr>
       <td>Reviewer</td>
-      <td>{{ user.reviewer }}</td>
+      <td>{{ user.isReviewer }}</td>
     </tr>
     <tr>
       <td colspan="2">
-        <a routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit</a>
-        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        <a routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit'>Edit User</a>
+        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove User</button>
       </td>
     </tr>
   </table>

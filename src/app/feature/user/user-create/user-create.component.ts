@@ -12,7 +12,6 @@ import { JsonResponse } from '../../../model/json-response.class';
 export class UserCreateComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   title: string = 'User Create';
-  resp: any;
   user: User = new User(0, '', '', '', '', '', '', false, false);
   jr: JsonResponse;
 
@@ -24,8 +23,8 @@ export class UserCreateComponent implements OnInit {
   // User Create method
   create() {
     this.userSvc.create(this.user)
-      .subscribe(resp => {
-        this.jr = resp;
+      .subscribe(jresp => {
+        this.jr = jresp;
         this.router.navigate(['/user/list']);
       });
   }

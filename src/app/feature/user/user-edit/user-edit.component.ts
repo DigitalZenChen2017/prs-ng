@@ -38,7 +38,7 @@ export class UserEditComponent implements OnInit {
     console.log('user edit component edit method...');
     this.UserSvc.edit(this.user)
       .subscribe(resp => {
-        this.resp = resp;
+        this.jr = resp;
         this.router.navigate(['/user/list']);
       });
   }

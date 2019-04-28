@@ -1,18 +1,20 @@
+import { User } from './user.class';
+
 export class PurchaseRequest {
     id: number;
-    User: object;
+    user: User;
     description: string;
     justification: string;
-    dateNeeded: object;
+    dateNeeded: Date;
     deliveryMode: string;
     status: string;
-    submittedDate: object;
+    submittedDate: Date;
     reasonForRejection: string;
 
 // tslint:disable-next-line: max-line-length
-    constructor(id: number, User: object, description: string, justification: string, dateNeeded: object, deliveryMode: string, status: string, submittedDate: object, reasonForRejection: string) {
+    constructor(id: number, prUser: User, description: string, justification: string, dateNeeded: Date, deliveryMode: string, status: string, submittedDate: Date, reasonForRejection: string) {
         this.id = id;
-        this.User = User;
+        this.user = prUser;
         this.description = description;
         this.justification = justification;
         this.dateNeeded = dateNeeded;
@@ -24,6 +26,6 @@ export class PurchaseRequest {
 
     about(): string {
 // tslint:disable-next-line: max-line-length
-        return `PurchaseRequest: id=${this.id}, User=${this.User}, description=${this.description}, justification=${this.justification}, dateNeeded=${this.dateNeeded}, deliveryMode=${this.deliveryMode}, status=${this.status}, submittedDate=${this.submittedDate}, reasonForRejection=${this.reasonForRejection}`;
+        return `PurchaseRequest: id=${this.id}, User=${this.user}, description=${this.description}, justification=${this.justification}, dateNeeded=${this.dateNeeded}, deliveryMode=${this.deliveryMode}, status=${this.status}, submittedDate=${this.submittedDate}, reasonForRejection=${this.reasonForRejection}`;
     }
 }

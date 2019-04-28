@@ -12,6 +12,10 @@ const url = 'http://localhost:8080/users/';
 export class UserService {
 
   // Returns an array of JsonResponse wrapper class, Observable types
+  login(user: User): Observable<JsonResponse> {
+    return this.http.post(url + "authenticate", user) as Observable<JsonResponse>;
+  }
+
   list(): Observable<JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;
   }
@@ -37,4 +41,5 @@ export class UserService {
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(url + id) as Observable<JsonResponse>;
   }
+
 }

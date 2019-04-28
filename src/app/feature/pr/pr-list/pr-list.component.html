@@ -1,3 +1,51 @@
-<p>
-  pr-list works!
-</p>
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/purchaserequest/create'>
+        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!purchaserequests'>Loading ...</p>
+<table class="table table-sm text-center" *ngIf='purchaserequests'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>Id</u></a>
+    </th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('user.name')"><u>User
+        </u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('description')"><u>Description</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('justification')"><u>Justification</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('dateNeeded')"><u>Date
+          Needed</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('deliveryMode')"><u>Delivery Mode</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('status')"><u>Status</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('submittedDate')"><u>Submitted Date</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('reasonForRejection')"><u>Reason For Rejection</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Actions</u></a>
+    </th>
+  </tr>
+  <tr *ngFor='let purchaserequest of purchaserequests | sort: sortCriteria : sortOrder'>
+    <td>{{purchaserequest.id}}</td>
+    <td>{{purchaserequest.user.firstName}}</td>
+    <td>{{purchaserequest.description}}</td>
+    <td>{{purchaserequest.justification}}</td>
+    <td>{{purchaserequest.dateNeeded}}</td>
+    <td>{{purchaserequest.deliveryMode}}</td>
+    <td>{{purchaserequest.status}}</td>
+    <td>{{purchaserequest.submittedDate}}</td>
+    <td>{{purchaserequest.reasonForRejection}}</td>
+    <td class='actions'>
+      <a routerLink='/purchaserequest/details/{{purchaserequest.id}}'><img src='assets/details.png' width='20'
+          height='20' title='Detail'></a>
+      <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}'><img src='assets/pencil-icon.png' width='20'
+          height='20' title='Edit'></a>
+    </td>
+  </tr>
+</table>

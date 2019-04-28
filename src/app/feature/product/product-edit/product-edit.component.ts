@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core'; import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from '../../../model/product.class';
 import { ProductService } from '../../../service/product.service';
 import { JsonResponse } from '../../../model/json-response.class';
+import { Vendor } from 'src/app/model/vendor.class';
+import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -12,21 +15,28 @@ export class ProductEditComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   title: string = 'Product Edit';
 
-  jr: JsonResponse;
   id: string;
-  resp: any;
+  jr: JsonResponse;
 
   product: Product;
+  vendors: Vendor[];
 
-  constructor(private ProductSvc: ProductService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private productSvc: ProductService, private vendorSvc: VendorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // tslint:disable-next-line: no-string-literal
     this.route.params.subscribe(parms => this.id = parms['id']);
+
     console.log('product edit ngOnInit', 'id = ' + this.id);
-    this.ProductSvc.get(this.id)
-      .subscribe(jrresp => {
-        this.jr = jrresp;
+    // Subscribes Vendor objects from HTTP Request to JsonResponse objects and set equal to the vendors array
+    this.vendorSvc.list()
+      .subscribe(jresp => {
+        this.jr = jresp as JsonResponse;
+        this.vendors = this.jr.data as Vendor[];
+      });
+    this.productSvc.get(this.id)
+      .subscribe(jresp => {
+        this.jr = jresp;
         console.log('1');
         this.product = this.jr.data as Product;
         console.log('product', this.product);
@@ -35,11 +45,15 @@ export class ProductEditComponent implements OnInit {
 
   edit() {
     console.log('product edit component edit method...');
-    this.ProductSvc.edit(this.product)
+    this.productSvc.edit(this.product)
       .subscribe(resp => {
-        this.resp = resp;
+        this.jr = resp;
         this.router.navigate(['/product/list']);
       });
+  }
+
+  compareFn(v1: number, v2: number): boolean {
+    return v1 === v2;
   }
 
 
