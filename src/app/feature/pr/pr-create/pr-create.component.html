@@ -9,51 +9,51 @@
   <p *ngIf='undefined'>Loading ...</p>
 
   <div *ngIf='purchaserequest'>
-    <div class='form-group row'>
-      <label class='col-form-label col-sm-2' for="vendor">User:</label>
-      <div class=' col-sm-6'>
-        <select [(ngModel)]='purchaserequest.User' class='form-control' name='User' id='user'>
-          <option *ngFor="let user of users" [ngValue]="user">{{user.name}}</option>
+    <div class='form-group row text-center'>
+      <label class='col-form-label col-sm-2' for="user">User:</label>
+      <div class=' col-sm-6 select-list'>
+        <select [(ngModel)]='purchaserequest.user' class='form-control' name='User' id='user'>
+          <option *ngFor="let user of users" [ngValue]="user">{{user.firstName}}</option>
         </select>
       </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
       <label class='col-form-label col-sm-2' for="purchaserequestdescription">Description:</label>
       <input [(ngModel)]='purchaserequest.description' name='Description' type="text" class="form-control col-sm-6"
         id="purchaserequestdescription" aria-describedby="descriptionHelp" placeholder="Description">
       <small id="descriptionHelp" class="form-text text-muted col-sm-2">Purchase Request Description</small>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
       <label class='col-form-label col-sm-2' for="purchaserequestjustification">Justification:</label>
       <input [(ngModel)]='purchaserequest.justification' name='Justification' type="text" class="form-control col-sm-6"
         id="productname" aria-describedby="justificationHelp" placeholder="Justification">
       <small id="justificationHelp" class="form-text text-muted col-sm-2">Purchase Request Justification</small>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
       <label class='col-form-label col-sm-2' for="purchaserequestdateneeded">Date Needed:</label>
       <input [(ngModel)]='purchaserequest.dateNeeded' name='DateNeeded' type="number" class="form-control col-sm-6"
         id="purchaserequestdateneeded" aria-describedby="dateNeededHelp" placeholder="Date Needed">
       <small id="dateNeededHelp" class="form-text text-muted col-sm-2">Date Needed</small>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
       <label class='col-form-label col-sm-2' for="purchaserequestdeliverymode">Delivery Mode:</label>
       <input [(ngModel)]='purchaserequest.deliveryMode' name='DeliveryMode' type="text" class="form-control col-sm-6"
         id="purchaserequestdeliverymode" aria-describedby="deliveryModeHelp" placeholder="Delivery Mode">
       <small id="deliveryModeHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
       <label class='col-form-label col-sm-2' for="purchaserequestdeliverymode">Status:</label>
       <input [(ngModel)]='purchaserequest.status' name='Status' type="text" class="form-control col-sm-6"
         id="purchaserequeststatus" aria-describedby="statusHelp" placeholder="Status">
       <small id="statusHelp" class="form-text text-muted col-sm-2">Status</small>
     </div>
-    <div class="form-group row">
+    <div class="form-group row text-center">
         <label class='col-form-label col-sm-2' for="purchaserequestsubmitteddate">Submitted Date:</label>
         <input [(ngModel)]='purchaserequest.submittedDate' name='SubmittedDate' type="text" class="form-control col-sm-6"
           id="purchaserequestsubmitteddate" aria-describedby="submittedDateHelp" placeholder="Submitted Date">
         <small id="submittedDateHelp" class="form-text text-muted col-sm-2">Submitted Date</small>
       </div>
-    <div class='form-group'>
+    <div class='form-group text-center'>
       <button (click)='create()' class='btn btn-primary'>Create Purchase Request</button>
     </div>
   </div>

@@ -14,7 +14,6 @@ import { VendorService } from '../../../service/vendor.service';
 export class ProductCreateComponent implements OnInit {
   // tslint:disable-next-line: no-inferrable-types
   title: string = 'Product Create';
-
   jr: JsonResponse;
 
   // Insert Vendor default values 
@@ -36,7 +35,7 @@ export class ProductCreateComponent implements OnInit {
     this.productSvc.create(this.product)
       .subscribe(jresp => {
         this.jr = jresp;
-        this.router.navigate(['/product/list']);
+        this.router.navigate(['/purchaserequest/list']);
       });
   }
 

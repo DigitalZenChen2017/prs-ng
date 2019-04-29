@@ -1,3 +1,54 @@
-<p>
-  pr-detail works!
-</p>
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+      <span><a routerLink='/purchaserequest/create'><img id='createnew' width='20' height='20' src='assets/add-icon.png'
+            title='Add New'></a></span>
+    </div>
+  </div>
+  <table class="table table-sm" *ngIf='purchaserequest'>
+    <tr>
+      <td>Id</td>
+      <td>{{ purchaserequest.id}}</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>{{ purchaserequest.user.firstName }}</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>{{ purchaserequest.description }}</td>
+    </tr>
+    <tr>
+      <td>Justification</td>
+      <td>{{ purchaserequest.justification }}</td>
+    </tr>
+    <tr>
+      <td>Date Needed</td>
+      <td>{{ purchaserequest.dateNeeded }}</td>
+    </tr>
+    <tr>
+      <td>Delivery Mode</td>
+      <td>{{ purchaserequest.deliveryMode }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ purchaserequest.status }}</td>
+    </tr>
+    <tr>
+      <td>Submitted Date</td>
+      <td>{{ purchaserequest.submittedDate }}</td>
+    </tr>
+    <tr>
+      <td>Reason For Rejection</td>
+      <td>{{ purchaserequest.reasonForRejection }}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button id='remove' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

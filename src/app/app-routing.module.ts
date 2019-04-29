@@ -22,6 +22,11 @@ import { PrDetailComponent } from './feature/pr/pr-detail/pr-detail.component';
 import { PrCreateComponent } from './feature/pr/pr-create/pr-create.component';
 import { PrEditComponent } from './feature/pr/pr-edit/pr-edit.component';
 
+import { PrliListComponent } from './feature/prli/prli-list/prli-list.component';
+import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.component';
+import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
+import { PrliDetailComponent } from './feature/prli/prli-detail/prli-detail.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/user/login', pathMatch: 'full' },
   { path: 'user/login', component: UserLoginComponent },
@@ -42,10 +47,15 @@ const routes: Routes = [
 
   { path: 'purchaserequest/list', component: PrListComponent },
   { path: 'purchaserequest/create', component: PrCreateComponent },
-  { path: 'purchaserequest/edit', component: PrEditComponent },
+  { path: 'purchaserequest/edit/:id', component: PrEditComponent },
   { path: 'purchaserequest/details/:id', component: PrDetailComponent },
 
-  { path: '**', component: UserListComponent } // Means any other path goes to the UserListComponent
+  { path: 'purchaserequestlineitem/list', component: PrliListComponent },
+  { path: 'purchaserequestlineitem/create', component: PrliCreateComponent },
+  { path: 'purchaserequestlineitem/edit/:id', component: PrliEditComponent },
+  { path: 'purchaserequestlineitem/details/:id', component: PrliDetailComponent },
+
+  { path: '**', component: UserLoginComponent } // Means any other path goes to the UserListComponent
 ];
 
 @NgModule({

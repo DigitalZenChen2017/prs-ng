@@ -29,7 +29,7 @@ export class UserLoginComponent implements OnInit {
         }
         else {
           console.log("errors NOT null")
-          this.message = "Invalid Username/Password combo.  Retry";
+          this.message = "Invalid Username/Password! Please Try Again.";
         }
       })
   }
