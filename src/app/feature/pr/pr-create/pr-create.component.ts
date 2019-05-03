@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PurchaseRequest } from '../../../model/purchase-request.class';
 import { PrService } from '../../../service/pr.service';
-import { User } from '../../../model/user.class';
-import { UserService } from '../../../service/user.service';
 import { JsonResponse } from '../../../model/json-response.class';
+import { User } from '../../../model/user.class';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-pr-create',
@@ -14,26 +14,25 @@ import { JsonResponse } from '../../../model/json-response.class';
 export class PrCreateComponent implements OnInit {
   title: string = 'Purchase Request Create';
   jr: JsonResponse;
-  purchaserequest: PurchaseRequest = new PurchaseRequest(0, new User(0, '', '', '', '', '', '', false, false), '', '', new Date(), '', '', new Date(), '')
-  users: User[];
+  loggedInUser: User;
+  purchaserequest: PurchaseRequest;
 
-  constructor(private purchaserequestSvc: PrService, private userSvc: UserService, private router: Router) { }
+  constructor(private purchaserequestSvc: PrService, private router: Router, private systemSvc: SystemService) { }
 
   // On Page Load - call the list of Users and subscribe them to jr variable as JsonResponse and users as User data type
   ngOnInit() {
-    this.userSvc.list()
-      .subscribe(jresp => {
-        this.jr = jresp as JsonResponse;
-        this.users = this.jr.data as User[];
-      });
+    this.loggedInUser = this.systemSvc.data.user.instance;
+    this.purchaserequest = new PurchaseRequest(0, this.loggedInUser, '', '', new Date(), '', '', new Date(), '')
+    console.log("logged in user on pr-create")
+    console.log("this.purchaserequest = ", this.purchaserequest);
   }
 
-  // Product Create method
+  // Purchase Request Create method
   create() {
-    this.purchaserequestSvc.create(this.purchaserequest)
+    this.purchaserequestSvc.submitNew(this.purchaserequest)
       .subscribe(jresp => {
         this.jr = jresp;
-        this.router.navigate(['/product/list']);
+        this.router.navigate(['/purchaserequest/list']);
       });
   }
 

@@ -2,9 +2,6 @@
 <div class='component-content'>
   <div class='lefthalf'>
     <span class='component-title'>[{{title}}] </span>
-    <span><a routerLink='/purchaserequest/create'>
-        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
-    </span>
   </div>
 </div>
 <p *ngIf='!purchaserequests'>Loading ...</p>
@@ -12,7 +9,8 @@
   <tr>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>Id</u></a>
     </th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('user.userName')"><u>User Name
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('user.userName')"><u>User Name
         </u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
         (click)="sortBy('description')"><u>Description</u></a></th>
@@ -30,11 +28,7 @@
     <td>{{purchaserequest.status}}</td>
     <td>{{purchaserequest.total}}</td>
     <td class='actions'>
-      <a routerLink='/purchaserequest/details/{{purchaserequest.id}}'><img src='assets/details.png' width='20'
-          height='20' title='Detail'></a>
-      <a routerLink='/purchaserequest/edit/{{purchaserequest.id}}'><img src='assets/pencil-icon.png' width='20'
-          height='20' title='Edit'></a>
-      <a routerLink='/purchaserequest/lines/{{purchaserequest.id}}'><img src='assets/lines.png' width='20' height='20' title='Edit'></a>
+      <a routerLink='/purchaserequest/review/pr-approve-reject'><img src='assets/review.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr>
 </table>

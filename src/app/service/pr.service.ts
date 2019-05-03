@@ -24,14 +24,37 @@ export class PrService {
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  create(PurchaseRequest: PurchaseRequest): Observable<any> {
-    console.log('purchaserequestsvc.create...');
-    return this.http.post(url, PurchaseRequest) as Observable<any>;
+  submitNew(PurchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    console.log('purchaserequestsvc.submitNew...');
+    return this.http.post(url + 'submit-new', PurchaseRequest) as Observable<JsonResponse>;
+  }
+
+  submitForReview(PurchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    console.log('purchaserequestsvc.submitForReview...')
+    return this.http.post(url + "submit-review", PurchaseRequest) as Observable<JsonResponse>;
+  }
+
+  listReview(id: number): Observable<JsonResponse> {
+    let urlStr: string = url + "list-review/" + id;
+    console.log("listReview url:  " + urlStr);
+    console.log("pr listReview(): " + PurchaseRequest);
+    return this.http.get(url + "list-review/" + id) as Observable<JsonResponse>;
+  }
+
+  approveRequest(PurchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    console.log('purchaserequestsvc.approveRequest...')
+    return this.http.post(url + "approve", PurchaseRequest) as Observable<JsonResponse>;
+  }
+
+  rejectRequest(PurchaseRequest: PurchaseRequest, reasonForRejection: String): Observable<JsonResponse> {
+    console.log('purchaserequestsvc.rejectRequest...')
+    reasonForRejection = PurchaseRequest.reasonForRejection;
+    return this.http.post(url + "reject", PurchaseRequest) as Observable<JsonResponse>;
   }
 
   // tslint:disable-next-line: no-shadowed-variable
-  edit(PurchaseRequest: PurchaseRequest): Observable<any> {
-    return this.http.put(url, PurchaseRequest) as Observable<any>;
+  edit(PurchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.put(url, PurchaseRequest) as Observable<JsonResponse>;
   }
 
   delete(id: number): Observable<JsonResponse> {

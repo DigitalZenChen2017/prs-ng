@@ -1,0 +1,52 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    |
+    <span><a routerLink='/purchaserequest/list'>Back to Purchase Request List</a></span></div>
+</div>
+<p *ngIf='!purchaseRequest'>Loading ...</p>
+<table class="table table-sm text-center" *ngIf='purchaseRequest'>
+  <tr>
+    <th class="table-secondary font-weight-bold">Id</th>
+    <th class="table-secondary font-weight-bold">Description</th>
+    <th class="table-secondary font-weight-bold">Status</th>
+    <th class="table-secondary font-weight-bold">Total</th>
+  </tr>
+  <tr>
+    <td>{{purchaseRequest.id}}</td>
+    <td>{{purchaseRequest.description}}</td>
+    <td>{{purchaseRequest.status}}</td>
+    <td>{{purchaseRequest.total}}</td>
+  </tr>
+</table>
+<span><a routerLink='/purchaserequestlineitem/create/{{purchaseRequest.id}}'>Lines
+    <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+</span>
+<table class="table table-sm text-center">
+  <tr>
+    <th class="table-secondary font-weight-bold">Id</th>
+    <th class="table-secondary font-weight-bold">Product</th>
+    <th class="table-secondary font-weight-bold">Price</th>
+    <th class="table-secondary font-weight-bold">Quantity</th>
+    <!-- <th class="table-secondary font-weight-bold">Line Total</th> -->
+    <th class="table-secondary font-weight-bold">Action</th>
+  </tr>
+  <tr *ngFor='let purchaseRequestLineItem of purchaseRequestLineItems'>
+    <td>{{purchaseRequestLineItem.id}}</td>
+    <td>{{purchaseRequestLineItem.product.name}}</td>
+    <td>{{purchaseRequestLineItem.product.price}}</td>
+    <td>{{purchaseRequestLineItem.quantity}}</td>
+    <!-- <td>{{purchaseRequestLineItem.Product.price}}</td> Product Price * Quantity = Line Item Total -->
+    <td class='actions'>
+      <a routerLink='/purchaserequestlineitem/edit/{{purchaseRequestLineItem.id}}'><img src='../../../../assets/pencil-icon.png' width='20'
+          height='20' title='Edit'></a>
+      <a (click)='delete()'><img src='../../../../assets/delete.jpg' width='20' height='20' title='Delete'></a>
+    </td>
+  </tr>
+</table>
+<div class='form-group text-center'>
+  <button (click)='submitForReview(purchaseRequest)' class='btn btn-primary'>Submit For Review</button>
+</div>
+<span class='text-danger font-weight-bold'>{{errorMessage}}</span>
+<span class='text-success font-weight-bold'>{{autoApproveMessage}}</span>

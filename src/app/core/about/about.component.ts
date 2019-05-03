@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-title: string = "What is the Purchase Request System? (PRS)"
+  title: string = "What is the Purchase Request System? (PRS)"
 
   constructor() { }
 

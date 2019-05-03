@@ -21,14 +21,21 @@ import { PrListComponent } from './feature/pr/pr-list/pr-list.component';
 import { PrDetailComponent } from './feature/pr/pr-detail/pr-detail.component';
 import { PrCreateComponent } from './feature/pr/pr-create/pr-create.component';
 import { PrEditComponent } from './feature/pr/pr-edit/pr-edit.component';
+import { PrLinesComponent } from './feature/pr/pr-lines/pr-lines.component';
+import { PrReviewComponent } from './feature/pr/pr-review/pr-review.component';
 
-import { PrliListComponent } from './feature/prli/prli-list/prli-list.component';
 import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.component';
 import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
-import { PrliDetailComponent } from './feature/prli/prli-detail/prli-detail.component';
+
+
+import { AboutComponent } from './core/about/about.component';
+import { PrApproveRejectComponent } from './feature/pr/pr-approve-reject/pr-approve-reject.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/login', pathMatch: 'full' },
+
+  { path: 'about', component: AboutComponent },
+
   { path: 'user/login', component: UserLoginComponent },
   { path: 'user/list', component: UserListComponent },
   { path: 'user/create', component: UserCreateComponent },
@@ -49,11 +56,12 @@ const routes: Routes = [
   { path: 'purchaserequest/create', component: PrCreateComponent },
   { path: 'purchaserequest/edit/:id', component: PrEditComponent },
   { path: 'purchaserequest/details/:id', component: PrDetailComponent },
+  { path: 'purchaserequest/lines/:id', component: PrLinesComponent },
+  { path: 'purchaserequest/review', component: PrReviewComponent },
+  { path: 'purchaserequest/review/pr-approve-reject', component: PrApproveRejectComponent },
 
-  { path: 'purchaserequestlineitem/list', component: PrliListComponent },
-  { path: 'purchaserequestlineitem/create', component: PrliCreateComponent },
+  { path: 'purchaserequestlineitem/create/:id', component: PrliCreateComponent },
   { path: 'purchaserequestlineitem/edit/:id', component: PrliEditComponent },
-  { path: 'purchaserequestlineitem/details/:id', component: PrliDetailComponent },
 
   { path: '**', component: UserLoginComponent } // Means any other path goes to the UserListComponent
 ];

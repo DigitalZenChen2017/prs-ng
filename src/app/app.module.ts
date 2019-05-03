@@ -8,6 +8,8 @@ import { UserService } from './service/user.service';
 import { VendorService } from './service/vendor.service';
 import { ProductService } from './service/product.service';
 import { SystemService } from './service/system.service';
+import { PrService } from './service/pr.service';
+import { PrliService } from './service/prli.service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './core/menu/menu.component';
@@ -28,13 +30,15 @@ import { PrDetailComponent } from './feature/pr/pr-detail/pr-detail.component';
 import { PrEditComponent } from './feature/pr/pr-edit/pr-edit.component';
 import { PrListComponent } from './feature/pr/pr-list/pr-list.component';
 import { PrliCreateComponent } from './feature/prli/prli-create/prli-create.component';
-import { PrliDetailComponent } from './feature/prli/prli-detail/prli-detail.component';
 import { PrliEditComponent } from './feature/prli/prli-edit/prli-edit.component';
-import { PrliListComponent } from './feature/prli/prli-list/prli-list.component';
 import { FooterComponent } from './core/footer/footer.component';
 
 import { SortPipe } from './pipe/sort.pipe';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { PrReviewComponent } from './feature/pr/pr-review/pr-review.component';
+import { AboutComponent } from './core/about/about.component';
+import { PrLinesComponent } from './feature/pr/pr-lines/pr-lines.component';
+import { PrApproveRejectComponent } from './feature/pr/pr-approve-reject/pr-approve-reject.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +60,15 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     PrCreateComponent,
     PrEditComponent,
     PrDetailComponent,
-    PrliListComponent,
     PrliCreateComponent,
     PrliEditComponent,
-    PrliDetailComponent,
     FooterComponent,
     SortPipe,
-    UserLoginComponent
+    UserLoginComponent,
+    PrReviewComponent,
+    AboutComponent,
+    PrLinesComponent,
+    PrApproveRejectComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,7 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService, VendorService, ProductService, SystemService],
+  providers: [UserService, VendorService, ProductService, SystemService, PrService, PrliService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,22 @@
+import { PurchaseRequest } from './purchase-request.class';
+import { Product } from './product.class';
+
 export class PurchaseRequestLineItem {
     id: number;
-    PurchaseRequest: object; // declared but not assigned
-    Product: object;
+    purchaseRequest: PurchaseRequest; // declared but not assigned
+    product: Product;
     quantity: number;
+    
 
-    constructor(id: number, PurchaseRequest: object, Product: object, quantity: number) {
+    constructor(id: number, PurchaseRequest: PurchaseRequest, Product: Product, quantity: number) {
         this.id = id;
-        this.PurchaseRequest = PurchaseRequest;
-        this.Product = Product;
+        this.purchaseRequest = PurchaseRequest;
+        this.product = Product;
         this.quantity = quantity;
     }
 
     about(): string {
 // tslint:disable-next-line: max-line-length
-        return `PurchaseRequestLineItem: id=${this.id}, PurchaseRequest=${this.PurchaseRequest}, Product=${this.Product}, quantity=${this.quantity}`;
+        return `PurchaseRequestLineItem: id=${this.id}, PurchaseRequest=${this.purchaseRequest}, Product=${this.product}, quantity=${this.quantity}`;
     }
 }
