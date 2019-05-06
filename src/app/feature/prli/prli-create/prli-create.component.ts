@@ -22,7 +22,7 @@ export class PrliCreateComponent implements OnInit {
   title: string = 'Purchase Request Line Item Create';
   jr: JsonResponse;
   purchaserequest: PurchaseRequest;
-  purchaserequestlineitem: PurchaseRequestLineItem = new PurchaseRequestLineItem(0, new PurchaseRequest(0, new User(0, '', '', '', '', '', '', false, false), '', '', new Date(), '', '', new Date(), ''), new Product(0, new Vendor(0, '', '', '', '', '', '', '', '', false), '', '', 0, '', ''), 0);
+  purchaserequestlineitem: PurchaseRequestLineItem = new PurchaseRequestLineItem(0, new PurchaseRequest(0, new User(0, '', '', '', '', '', '', false, false), '', '', new Date(), '', '', 0, new Date(), ''), new Product(0, new Vendor(0, '', '', '', '', '', '', '', '', false), '', '', 0, '', ''), 0);
   products: Product[];
   id: string;
 
