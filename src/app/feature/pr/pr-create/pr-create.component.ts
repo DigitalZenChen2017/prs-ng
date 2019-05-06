@@ -22,7 +22,7 @@ export class PrCreateComponent implements OnInit {
   // On Page Load - call the list of Users and subscribe them to jr variable as JsonResponse and users as User data type
   ngOnInit() {
     this.loggedInUser = this.systemSvc.data.user.instance;
-    this.purchaserequest = new PurchaseRequest(0, this.loggedInUser, '', '', new Date(), '', '', new Date(), '')
+    this.purchaserequest = new PurchaseRequest(0, this.loggedInUser, '', '', new Date(), '', '', 0, new Date(), '');
     console.log("logged in user on pr-create")
     console.log("this.purchaserequest = ", this.purchaserequest);
   }

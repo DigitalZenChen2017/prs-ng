@@ -25,13 +25,13 @@
       <input [(ngModel)]='purchaserequestlineitem.product.price' name='prproductprice' type="text"
         class="form-control col-sm-6" id="prproductprice" aria-describedby="prproductpriceHelp"
         placeholder="Product Price">
-      <small id="prproductpriceHelp" class="form-text text-muted col-sm-2">The Product Price</small>
+      <small id="prproductpriceHelp" class="form-text text-muted col-sm-2">Product Price</small>
     </div>
     <div class='form-group row text-center'>
       <label class='col-form-label col-sm-2' for="purchaserequestquantity">Quantity:</label>
       <input [(ngModel)]='purchaserequestlineitem.quantity' name='productprice' type="text"
         class="form-control col-sm-6" id="productprice" aria-describedby="productpriceHelp" placeholder="Quantity">
-      <small id="productpriceHelp" class="form-text text-muted col-sm-2">The Product Price</small>
+      <small id="productquantityHelp" class="form-text text-muted col-sm-2">Product Quantity</small>
     </div>
     <div class='form-group text-center'>
       <button (click)='createNewPRLI()' class='btn btn-primary'>Create Purchase Request Line Item</button>

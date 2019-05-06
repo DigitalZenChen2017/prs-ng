@@ -16,7 +16,7 @@ export class PrEditComponent implements OnInit {
   title: string = 'Purchase Request Edit';
   id: string;
   jr: JsonResponse;
-  purchaserequest: PurchaseRequest;
+  purchaseRequest: PurchaseRequest;
   users: User[];
 
   constructor(private prSvc: PrService, private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
@@ -36,14 +36,14 @@ export class PrEditComponent implements OnInit {
       .subscribe(jresp => {
         this.jr = jresp;
         console.log('1');
-        this.purchaserequest = this.jr.data as PurchaseRequest;
-        console.log('purchaserequest', this.purchaserequest);
+        this.purchaseRequest = this.jr.data as PurchaseRequest;
+        console.log('purchaserequest', this.purchaseRequest);
       });
   }
 
   edit() {
     console.log('purchaserequest edit component edit method...');
-    this.prSvc.edit(this.purchaserequest)
+    this.prSvc.edit(this.purchaseRequest)
       .subscribe(resp => {
         this.jr = resp;
         this.router.navigate(['/purchaserequest/list']);

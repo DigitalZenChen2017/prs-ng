@@ -29,14 +29,6 @@ export class PrReviewComponent implements OnInit {
       console.error("User not logged in");
     }
 
-    /*
-    ngOnInit() {
-    this.loggedInUser = this.systemSvc.data.user.instance;
-    this.purchaserequest = new PurchaseRequest(0, this.loggedInUser, '', '', new Date(), '', '', new Date(), '')
-    console.log("logged in user on pr-create")
-  }
-    */
-
     console.log("0");
     this.purchaserequestSvc.listReview(this.loggedInUser.id).subscribe(jresp => {
       console.log("1");

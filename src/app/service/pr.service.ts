@@ -46,9 +46,8 @@ export class PrService {
     return this.http.post(url + "approve", PurchaseRequest) as Observable<JsonResponse>;
   }
 
-  rejectRequest(PurchaseRequest: PurchaseRequest, reasonForRejection: String): Observable<JsonResponse> {
+  rejectRequest(PurchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     console.log('purchaserequestsvc.rejectRequest...')
-    reasonForRejection = PurchaseRequest.reasonForRejection;
     return this.http.post(url + "reject", PurchaseRequest) as Observable<JsonResponse>;
   }
 

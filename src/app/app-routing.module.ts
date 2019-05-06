@@ -57,8 +57,9 @@ const routes: Routes = [
   { path: 'purchaserequest/edit/:id', component: PrEditComponent },
   { path: 'purchaserequest/details/:id', component: PrDetailComponent },
   { path: 'purchaserequest/lines/:id', component: PrLinesComponent },
+  { path: 'purchaserequest/lines/delete/:pr/:prli', component: PrLinesComponent },
   { path: 'purchaserequest/review', component: PrReviewComponent },
-  { path: 'purchaserequest/review/pr-approve-reject', component: PrApproveRejectComponent },
+  { path: 'purchaserequest/review/pr-approve-reject/:id', component: PrApproveRejectComponent },
 
   { path: 'purchaserequestlineitem/create/:id', component: PrliCreateComponent },
   { path: 'purchaserequestlineitem/edit/:id', component: PrliEditComponent },

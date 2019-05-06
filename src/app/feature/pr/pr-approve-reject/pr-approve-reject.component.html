@@ -1,3 +1,49 @@
-<p>
-  pr-approve-reject works!
-</p>
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    |
+    <span><a routerLink='/purchaserequest/review'>Back to Purchase Requests in Review</a></span></div>
+</div>
+<p *ngIf='!purchaseRequest'>Loading ...</p>
+<table class="table table-sm text-center" *ngIf='purchaseRequest'>
+  <tr>
+    <th class="table-secondary font-weight-bold">Id</th>
+    <th class="table-secondary font-weight-bold">Description</th>
+    <th class="table-secondary font-weight-bold">Status</th>
+    <th class="table-secondary font-weight-bold">Total</th>
+  </tr>
+  <tr>
+    <td>{{purchaseRequest.id}}</td>
+    <td>{{purchaseRequest.description}}</td>
+    <td>{{purchaseRequest.status}}</td>
+    <td>{{purchaseRequest.total}}</td>
+  </tr>
+</table>
+<table class="table table-sm text-center">
+  <tr>
+    <th class="table-secondary font-weight-bold">Id</th>
+    <th class="table-secondary font-weight-bold">Product</th>
+    <th class="table-secondary font-weight-bold">Price</th>
+    <th class="table-secondary font-weight-bold">Quantity</th>
+    <th class="table-secondary font-weight-bold">Sub Total</th>
+  </tr>
+  <tr *ngFor='let purchaseRequestLineItem of purchaseRequestLineItems'>
+    <td>{{purchaseRequestLineItem.id}}</td>
+    <td>{{purchaseRequestLineItem.product.name}}</td>
+    <td>{{purchaseRequestLineItem.product.price}}</td>
+    <td>{{purchaseRequestLineItem.quantity}}</td>
+    <td>{{purchaseRequestLineItem.quantity * purchaseRequestLineItem.product.price}}</td>
+  </tr>
+</table>
+<div *ngIf="purchaseRequest.status !=='Approved' || purchaseRequest.status !=='Rejected'" class='form-group'>
+  <button (click)='approvePurchaseRequest()' class='btn btn-primary'>Approve
+    Purchase Request</button>
+  <button [disabled]="purchaseRequest.reasonForRejection == 'N/A' || purchaseRequest.reasonForRejection == '' "
+    (click)='rejectPurchaseRequest()' class='btn btn-danger'>Reject Purchase
+    Request</button>
+</div>
+<label>Reason For Rejection:</label>
+<input class='font-weight-bold' type='text'
+  [(ngModel)]='purchaseRequest.reasonForRejection'>{{purchaseRequest.reasonForRejection}}
+<span id='approvemessage' class='text-success font-weight-bold'>{{approveMessage}}</span>

@@ -31,7 +31,7 @@ export class PrliService {
     return this.http.put(url, PurchaseRequestLineItem) as Observable<JsonResponse>;
   }
 
-  delete(id: number): Observable<JsonResponse> {
+  delete(id: string): Observable<JsonResponse> {
     return this.http.delete(url + id) as Observable<JsonResponse>;
   }
 

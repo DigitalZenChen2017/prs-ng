@@ -22,11 +22,11 @@ export class ProductDetailComponent implements OnInit {
     this.route.params
       .subscribe(parms => {
         const id = parms.id;
-        this.getUserById(id);
+        this.getProductById(parms.id);
       });
   }
 
-  getUserById(id: string) {
+  getProductById(id: string) {
     this.productSvc.get(id)
       .subscribe(jsresp => {
         this.jr = jsresp;
