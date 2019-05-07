@@ -1,7 +1,7 @@
 h1,
 h2,
 h3 {
-  padding: 55px 0px 30px 0px;
+  padding: 40px 0px 30px 0px;
 }
 
 .img-responsive {
@@ -15,7 +15,12 @@ h3 {
 .programmingLanguages {
   height: auto;
   width: auto;
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 250px;
+  max-width: 250px;
   padding-bottom: 25px;
+}
+
+.secondRowImages {
+  padding-left: 1.75em;
+  padding-right: 1.75em;
 }
