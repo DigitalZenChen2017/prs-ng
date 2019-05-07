@@ -13,6 +13,9 @@ export class VendorListComponent implements OnInit {
   title: string = 'Vendor List';
   vendors: Vendor[];
   jr: JsonResponse;
+  sortCriteria: string = 'product';
+  sortOrder: string = 'asc';
+
 
   constructor(private vendorSvc: VendorService) { }
 
@@ -23,6 +26,15 @@ export class VendorListComponent implements OnInit {
       console.log(this.vendors);
     }
     );
+  }
+
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 
 }

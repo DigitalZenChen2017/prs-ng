@@ -11,40 +11,31 @@
 <table class="table table-sm text-center" *ngIf='vendors'>
   <tr>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Id')"><u>Id</u></a></th>
+        (click)="sortBy('id')"><u>Id</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Code')"><u>Code</u></a></th>
+        (click)="sortBy('name')"><u>Name</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Name')"><u>Name</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Address')"><u>Address
+        (click)="sortBy('address')"><u>Address
         </u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('City')"><u>City</u></a></th>
+        (click)="sortBy('city')"><u>City</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('State')"><u>State</u></a></th>
+        (click)="sortBy('state')"><u>State</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Zip')"><u>Zip</u></a></th>
+        (click)="sortBy('zip')"><u>Zip</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('phoneNumber')"><u>Phone</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('email')"><u>Email</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('preApproved')"><u>PreApproved</u></a></th>
+        (click)="sortBy('phoneNumber')"><u>Phone</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"><u>Actions</u></a>
     </th>
   </tr>
   <tr *ngFor='let vendor of vendors'>
     <td>{{vendor.id}}</td>
-    <td>{{vendor.code}}</td>
     <td>{{vendor.name}}</td>
     <td>{{vendor.address}}</td>
     <td>{{vendor.city}}</td>
     <td>{{vendor.state}}</td>
     <td>{{vendor.zip}}</td>
     <td>{{vendor.phoneNumber}}</td>
-    <td>{{vendor.email}}</td>
-    <td>{{vendor.preApproved}}</td>
     <td class='actions'>
       <a routerLink='/vendor/details/{{vendor.id}}'><img src='assets/details.png' width='20' height='20'
           title='Detail'></a>
